@@ -1,1 +1,14 @@
+# case : access port 5000 from external server, project run on port 8080 inside docker component 
+version: "2"
 
+services:
+  node-frontend:
+    #volumes:
+    #  - ./app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - "5000"
+    ports:
+      - "5000:8080"
